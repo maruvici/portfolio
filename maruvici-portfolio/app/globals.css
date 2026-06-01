@@ -1,1 +1,475 @@
 @import "tailwindcss";
+
+/* ============================================================
+   DESIGN TOKENS — Dark mode (default)
+   ============================================================ */
+:root {
+  --bg:           #0a0a0a;
+  --bg2:          #111111;
+  --bg3:          #1a1a1a;
+  --fg:           #e8e8e8;
+  --fg2:          #aaaaaa;
+  --fg3:          #555555;
+  --accent:       #3ddc84;
+  --accent2:      #2ab36a;
+  --accent3:      #1a6b40;
+  --accent-dim:   rgba(61, 220, 132, 0.08);
+  --border:       #222222;
+  --border2:      #333333;
+  --radius:       4px;
+  --font-mono:    'JetBrains Mono', 'Courier New', monospace;
+}
+
+/* ============================================================
+   DESIGN TOKENS — Light mode
+   Clean white/off-white bg, muted forest green accent (no neon)
+   ============================================================ */
+.light {
+  --bg:           #f7f7f5;
+  --bg2:          #efefec;
+  --bg3:          #e6e6e2;
+  --fg:           #1a1a1a;
+  --fg2:          #4a4a4a;
+  --fg3:          #8a8a8a;
+  --accent:       #1a6b40;
+  --accent2:      #155733;
+  --accent3:      #0f4228;
+  --accent-dim:   rgba(26, 107, 64, 0.08);
+  --border:       #d8d8d4;
+  --border2:      #c8c8c4;
+}
+
+/* ============================================================
+   BASE RESET & TYPOGRAPHY
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   CUSTOM SCROLLBAR — main content area
+   ============================================================ */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border2);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent3);
+}
+
+/* ============================================================
+   SELECTION COLOR
+   ============================================================ */
+::selection {
+  background: var(--accent-dim);
+  color: var(--accent);
+}
+
+/* ============================================================
+   FOCUS VISIBLE — keyboard nav ring
+   ============================================================ */
+:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   LOADER — always black/green regardless of theme
+   ============================================================ */
+#loader {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  font-family: var(--font-mono);
+}
+
+#loader-text {
+  color: #3ddc84;
+  font-size: 13px;
+  max-width: 500px;
+  width: 100%;
+  white-space: pre-wrap;
+  min-height: 200px;
+  line-height: 1.7;
+}
+
+#loader-bar-wrap {
+  width: 100%;
+  max-width: 500px;
+  margin-top: 1.5rem;
+  border: 1px solid #1a6b40;
+}
+
+#loader-bar {
+  height: 4px;
+  background: #3ddc84;
+  width: 0%;
+  transition: width 0.15s linear;
+}
+
+#loader-done {
+  color: #3ddc84;
+  font-size: 12px;
+  margin-top: 1rem;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  max-width: 500px;
+  width: 100%;
+}
+
+/* ============================================================
+   LAYOUT — sidebar + main
+   ============================================================ */
+#app-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ============================================================
+   SIDEBAR
+   ============================================================ */
+#sidebar {
+  width: 210px;
+  flex-shrink: 0;
+  background: var(--bg2);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 200;
+  transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+#main-content {
+  flex: 1;
+  margin-left: 210px;
+  overflow-y: auto;
+  height: 100vh;
+}
+
+/* ============================================================
+   MOBILE TOPBAR
+   ============================================================ */
+#mobile-topbar {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 300;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding: 0.6rem 1rem;
+  align-items: center;
+  justify-content: space-between;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+#sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 199;
+}
+
+/* ============================================================
+   SECTIONS
+   ============================================================ */
+section {
+  padding: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: border-color 0.3s ease;
+}
+
+section#hero {
+  min-height: 100vh;
+}
+
+section#contact {
+  min-height: auto;
+  padding-bottom: 3rem;
+}
+
+section:last-of-type {
+  border-bottom: none;
+}
+
+/* ============================================================
+   SECTION LABEL & TITLE — shared across all sections
+   ============================================================ */
+.sec-label {
+  color: var(--accent);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.sec-label-prefix {
+  color: var(--accent3);
+}
+
+.sec-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--fg);
+  margin-bottom: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+/* ============================================================
+   MAC-STYLE WINDOW DOTS (modal, terminal)
+   ============================================================ */
+.win-dots {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.win-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.win-dot-red    { background: #ff5f57; }
+.win-dot-yellow { background: #febc2e; }
+.win-dot-green  { background: #28c840; }
+
+/* ============================================================
+   SKILL TAG — shared between Skills section & modal
+   ============================================================ */
+.skill-tag {
+  display: inline-block;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  color: var(--fg2);
+  font-size: 11px;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius);
+  margin: 0.2rem 0.2rem 0 0;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+  font-family: var(--font-mono);
+  user-select: none;
+}
+
+.skill-tag.clickable {
+  cursor: pointer;
+}
+
+.skill-tag.clickable:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.skill-tag.selected {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* ============================================================
+   FLOATING TERMINAL — always dark regardless of theme
+   ============================================================ */
+#term-float {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 500;
+  background: #0d0d0d;
+  border-top: 2px solid #2a2a2a;
+  font-family: var(--font-mono);
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+#term-float.term-open {
+  transform: translateY(0);
+}
+
+#term-output {
+  padding: 0.8rem 1rem;
+  height: 200px;
+  overflow-y: auto;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+#term-output::-webkit-scrollbar { width: 3px; }
+#term-output::-webkit-scrollbar-thumb { background: #2a2a2a; }
+
+.term-line        { color: #bbb; font-family: var(--font-mono); }
+.term-line .t-g   { color: #3ddc84; }
+.term-line .t-d   { color: #444; }
+.term-line .t-err { color: #e05555; }
+
+.term-input-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 1rem;
+  border-top: 1px solid #2a2a2a;
+  background: #0d0d0d;
+}
+
+.term-ps {
+  color: #3ddc84;
+  font-size: 12px;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+}
+
+#term-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ccc;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+/* ============================================================
+   UTILITY CLASSES (supplement Tailwind where CSS vars needed)
+   ============================================================ */
+.bg-surface      { background-color: var(--bg); }
+.bg-surface2     { background-color: var(--bg2); }
+.bg-surface3     { background-color: var(--bg3); }
+.text-primary    { color: var(--fg); }
+.text-secondary  { color: var(--fg2); }
+.text-muted      { color: var(--fg3); }
+.text-accent     { color: var(--accent); }
+.text-accent-dim { color: var(--accent3); }
+.border-default  { border-color: var(--border); }
+.border-strong   { border-color: var(--border2); }
+.border-accent   { border-color: var(--accent); }
+.accent-bg-dim   { background-color: var(--accent-dim); }
+
+/* ============================================================
+   CURSOR BLINK — typewriter
+   ============================================================ */
+.tw-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: var(--accent);
+  vertical-align: text-bottom;
+  margin-left: 1px;
+  animation: blink 0.75s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ============================================================
+   STATUS DOT PULSE — hero
+   ============================================================ */
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse 2.5s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(61, 220, 132, 0.5); }
+  60%       { box-shadow: 0 0 0 8px rgba(61, 220, 132, 0); }
+}
+
+/* ============================================================
+   MODAL
+   ============================================================ */
+#modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+#modal-overlay.modal-open {
+  display: flex;
+}
+
+/* ============================================================
+   MOBILE BREAKPOINT (≤ 640px)
+   ============================================================ */
+@media (max-width: 640px) {
+  #sidebar {
+    transform: translateX(-100%);
+  }
+
+  #sidebar.mobile-open {
+    transform: translateX(0);
+  }
+
+  #main-content {
+    margin-left: 0;
+    padding-top: 48px;
+  }
+
+  #mobile-topbar {
+    display: flex;
+  }
+
+  section {
+    padding: 2rem 1.1rem;
+    min-height: auto;
+  }
+
+  section#hero {
+    min-height: calc(100vh - 48px);
+  }
+}
