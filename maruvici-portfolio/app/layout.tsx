@@ -1,19 +1,14 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "700"],
-  variable: "--font-jetbrains",
-  display: "swap",
-});
+import { ThemeProvider } from "@/app/context/ThemeContext";
+import { TerminalProvider } from "@/app/context/TerminalContext";
+import AppShell from "@/app/components/layout/AppShell";
 
 export const metadata: Metadata = {
   title: "Maruvici — Portfolio",
   description: "Automation Engineer & Software Developer based in the Philippines.",
   keywords: ["portfolio", "software developer", "automation engineer", "Next.js", "TypeScript"],
-  authors: [{ name: "Maruvici" }],
+  authors: [{ name: "Mav" }],
   openGraph: {
     title: "Maruvici — Portfolio",
     description: "Automation Engineer & Software Developer based in the Philippines.",
@@ -36,7 +31,15 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <ThemeProvider>
+          <TerminalProvider>
+            <AppShell>
+              {children}
+            </AppShell>
+          </TerminalProvider>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

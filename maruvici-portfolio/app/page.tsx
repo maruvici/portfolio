@@ -15,7 +15,7 @@ export default function Home() {
       fontSize: "13px",
     }}>
       <p style={{ color: "var(--accent)", marginBottom: "1rem" }}>
-        mark@portfolio:~$ ./verify-data.sh
+        maruvici@portfolio:~$ ./verify-data.sh
       </p>
       <p>✓ personal.name: <span style={{ color: "var(--accent)" }}>{personal.name}</span></p>
       <p>✓ personal.roles: <span style={{ color: "var(--accent)" }}>{personal.roles.join(", ")}</span></p>
