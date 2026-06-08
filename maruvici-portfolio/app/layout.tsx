@@ -3,6 +3,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/app/context/ThemeContext";
 import { TerminalProvider } from "@/app/context/TerminalContext";
 import AppShell from "@/app/components/layout/AppShell";
+import LoadingScreen from "@/app/components/ui/LoadingScreen";
 
 export const metadata: Metadata = {
   title: "Maruvici — Portfolio",
@@ -32,6 +33,7 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <LoadingScreen />
         <ThemeProvider>
           <TerminalProvider>
             <AppShell>
