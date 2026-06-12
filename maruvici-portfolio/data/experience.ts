@@ -55,7 +55,7 @@ const experience: ExperienceEntry[] = [
     organization: "University of the Philippines - Diliman",
     dateRange: "Sept 2021 - Jul 2025",
     bullets: [
-      "Graduated Cum Laude with a final GWA of 1.61 over 1.0",
+      "Graduated Cum Laude with a final GWA of 1.61 / 1.0",
       "Undergraduate Affiliate of the Smart Systems Laboratory (SSL)",
       "Capstone Project: COMMUTE (A Comparative Analysis of MPC-based Models for Urban Traffic Environments)"
     ],

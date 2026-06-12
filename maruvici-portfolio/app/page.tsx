@@ -7,9 +7,10 @@ import SkillsSection from "@/app/components/sections/SkillsSection";
 import ProjectsSection from "@/app/components/sections/ProjectsSection";
 import ProjectModal from "@/app/components/ui/ProjectModal";
 import projects from "@/data/projects";
+import ExperienceSection from "@/app/components/sections/ExperienceSection";
 
 // Remaining sections added in Steps 12–13
-const PLACEHOLDER_SECTIONS = ["experience", "contact"];
+const PLACEHOLDER_SECTIONS = ["contact"];
 
 export default function Home() {
   const [openProjectId, setOpenProjectId] = useState<number | null>(null);
@@ -25,6 +26,7 @@ export default function Home() {
       <AboutSection />
       <SkillsSection />
       <ProjectsSection onOpenProject={setOpenProjectId} />
+      <ExperienceSection />
 
       {PLACEHOLDER_SECTIONS.map((id) => (
         <section
