@@ -5,14 +5,15 @@ import { TerminalProvider } from "@/app/context/TerminalContext";
 import { SkillFilterProvider } from "@/app/context/SkillFilterContext";
 import AppShell from "@/app/components/layout/AppShell";
 import LoadingScreen from "@/app/components/ui/LoadingScreen";
+import FloatingTerminal from "@/app/components/ui/FloatingTerminal";
 
 export const metadata: Metadata = {
-  title: "Maruvici — Portfolio",
+  title: "Mark — Portfolio",
   description: "Automation Engineer & Software Developer based in the Philippines.",
   keywords: ["portfolio", "software developer", "automation engineer", "Next.js", "TypeScript"],
-  authors: [{ name: "Mav" }],
+  authors: [{ name: "Mark" }],
   openGraph: {
-    title: "Maruvici — Portfolio",
+    title: "Mark — Portfolio",
     description: "Automation Engineer & Software Developer based in the Philippines.",
     type: "website",
   },
@@ -34,13 +35,16 @@ export default function RootLayout({
         />
       </head>
       <body>
+        {/* Loading screen renders above everything, dismisses itself after boot sequence */}
         <LoadingScreen />
+
         <ThemeProvider>
           <TerminalProvider>
             <SkillFilterProvider>
               <AppShell>
                 {children}
               </AppShell>
+              <FloatingTerminal />
             </SkillFilterProvider>
           </TerminalProvider>
         </ThemeProvider>

@@ -50,7 +50,7 @@ export default function ContactSection() {
 
       {/* Footer echo line */}
       <div className="site-footer">
-        mark@portfolio:~$ <span>echo &quot;Thanks for visiting. Let&apos;s build something.&quot;</span>
+        maruvici@portfolio:~$ <span>echo &quot;Thanks for visiting. Let&apos;s build something.&quot;</span>
       </div>
     </section>
   );

@@ -11,7 +11,7 @@ export interface TerminalCommand {
 
 export const TERMINAL_COMMANDS: TerminalCommand[] = [
   { name: "help",     description: "list available commands" },
-  { name: "whoami",   description: "who is Mark" },
+  { name: "whoami",   description: "who is Mav" },
   { name: "about",    description: "short bio" },
   { name: "skills",   description: "tech stack" },
   { name: "projects", description: "list all projects" },
