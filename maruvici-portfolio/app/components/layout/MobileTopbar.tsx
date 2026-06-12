@@ -12,7 +12,7 @@ export default function MobileTopbar({ onMenuOpen }: MobileTopbarProps) {
   const { toggleTerminal } = useTerminal();
 
   return (
-    <div id="mobile-topbar" role="banner">
+    <div id="mobile-topbar" style={{ gap: "0.5rem" }} role="banner">
       <span
         style={{
           color: "var(--accent)",
@@ -24,7 +24,7 @@ export default function MobileTopbar({ onMenuOpen }: MobileTopbarProps) {
         maruvici@portfolio:~$
       </span>
 
-      <div style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
+      <div style={{ display: "flex", gap: "0.5rem", alignItems: "center"}}>
         <TopbarBtn onClick={toggleTheme} label="[ theme ]" />
         <TopbarBtn onClick={toggleTerminal} label="[ >_ ]" />
         <TopbarBtn onClick={onMenuOpen} label="[ menu ]" />
@@ -48,7 +48,7 @@ function TopbarBtn({
         border: "1px solid var(--border2)",
         color: "var(--fg2)",
         fontFamily: "var(--font-mono)",
-        fontSize: "11px",
+        fontSize: "9px",
         padding: "0.35rem 0.65rem",
         borderRadius: "var(--radius)",
         cursor: "pointer",

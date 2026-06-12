@@ -1,31 +1,33 @@
-import projects from "@/data/projects";
-import skillGroups from "@/data/skills";
-import experience from "@/data/experience";
-import personal from "@/data/personal";
-import { BOOT_LINES } from "@/data/terminal";
+import HeroSection from "@/app/components/sections/HeroSection";
+
+const PLACEHOLDER_SECTIONS = ["about", "skills", "projects", "experience", "contact"];
 
 export default function Home() {
   return (
-    <div style={{
-      fontFamily: "var(--font-mono)",
-      background: "var(--bg)",
-      color: "var(--fg)",
-      minHeight: "100vh",
-      padding: "2rem",
-      fontSize: "13px",
-    }}>
-      <p style={{ color: "var(--accent)", marginBottom: "1rem" }}>
-        maruvici@portfolio:~$ ./verify-data.sh
-      </p>
-      <p>✓ personal.name: <span style={{ color: "var(--accent)" }}>{personal.name}</span></p>
-      <p>✓ personal.roles: <span style={{ color: "var(--accent)" }}>{personal.roles.join(", ")}</span></p>
-      <p>✓ projects loaded: <span style={{ color: "var(--accent)" }}>{projects.length}</span></p>
-      <p>✓ skill groups: <span style={{ color: "var(--accent)" }}>{skillGroups.length}</span></p>
-      <p>✓ experience entries: <span style={{ color: "var(--accent)" }}>{experience.length}</span></p>
-      <p>✓ boot lines: <span style={{ color: "var(--accent)" }}>{BOOT_LINES.length}</span></p>
-      <p style={{ color: "var(--fg3)", marginTop: "1.5rem" }}>
-        Step 3 complete — data layer verified ✓
-      </p>
-    </div>
+    <>
+      <HeroSection />
+      {PLACEHOLDER_SECTIONS.map((id) => (
+        <section
+          key={id}
+          id={id}
+          style={{
+            minHeight: "100vh",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <p
+            style={{
+              color: "var(--accent)",
+              fontFamily: "var(--font-mono)",
+              fontSize: "13px",
+            }}
+          >
+            ~/{id} — coming in Phase {4 + PLACEHOLDER_SECTIONS.indexOf(id)}
+          </p>
+        </section>
+      ))}
+    </>
   );
 }
