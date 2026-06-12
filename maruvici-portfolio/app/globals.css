@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+@source "../data/*.{ts,tsx,js,jsx}";
+@source "./**/*.{ts,tsx,js,jsx}";
+
 /* ============================================================
    DESIGN TOKENS — Dark mode (default)
    ============================================================ */

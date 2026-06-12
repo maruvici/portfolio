@@ -82,7 +82,7 @@ const projects: Project[] = [
       "Tailwind CSS v4, and Framer Motion. Deployed on Vercel.",
     tags: ["Next.js", "Node.js", "TypeScript", "React", "Tailwind", "Vercel"],
     github: "https://github.com/maruvici/portfolio",
-    demo: null,
+    demo: "https://maruvici-portfolio.vercel.app",
     image: null,
     featured: true,
   },
