@@ -8,12 +8,12 @@ import LoadingScreen from "@/app/components/ui/LoadingScreen";
 import FloatingTerminal from "@/app/components/ui/FloatingTerminal";
 
 export const metadata: Metadata = {
-  title: "Mark — Portfolio",
+  title: "Mav's Portfolio",
   description: "Automation Engineer & Software Developer based in the Philippines.",
   keywords: ["portfolio", "software developer", "automation engineer", "Next.js", "TypeScript"],
   authors: [{ name: "Mark" }],
   openGraph: {
-    title: "Mark — Portfolio",
+    title: "Mav's Portfolio",
     description: "Automation Engineer & Software Developer based in the Philippines.",
     type: "website",
   },
