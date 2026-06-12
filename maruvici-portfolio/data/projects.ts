@@ -29,7 +29,7 @@ const projects: Project[] = [
     tags: ["Next.js", "Node.js", "TypeScript", "JavaScript", "React", "Tailwind", "Nginx", "PostgreSQL", "Mkdocs", "Mermaid"],
     github: "https://github.com/maruvici/info-hub",
     demo: null,
-    image: null,
+    image: "/images/info-hub-image.png",
     featured: true,
   },
   {
@@ -46,7 +46,7 @@ const projects: Project[] = [
     tags: ["Bash", "Python", "SQLPlus", "Oracle", "Docker"],
     github: "https://github.com/maruvici/auto-dbhc",
     demo: null,
-    image: null,
+    image: "/images/auto-dbhc-image.png",
     featured: true,
   },
   {
@@ -63,7 +63,7 @@ const projects: Project[] = [
     tags: ["Python", "Bash"],
     github: "https://github.com/maruvici/commute",
     demo: null,
-    image: null,
+    image: "/images/commute-image.png",
     featured: false,
   },
   {
@@ -83,7 +83,7 @@ const projects: Project[] = [
     tags: ["Next.js", "Node.js", "TypeScript", "React", "Tailwind", "Vercel"],
     github: "https://github.com/maruvici/portfolio",
     demo: "https://maruvici-portfolio.vercel.app",
-    image: null,
+    image: "/images/portfolio-image.png",
     featured: true,
   },
 ];
