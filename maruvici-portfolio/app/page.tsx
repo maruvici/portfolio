@@ -1,15 +1,31 @@
-import HeroSection from "@/app/components/sections/HeroSection";
-import AboutSection from "./components/sections/AboutSection";
-import SkillsSection from "./components/sections/SkillsSection";
+"use client";
 
-const PLACEHOLDER_SECTIONS = ["skills", "projects", "experience", "contact"];
+import { useState } from "react";
+import HeroSection from "@/app/components/sections/HeroSection";
+import AboutSection from "@/app/components/sections/AboutSection";
+import SkillsSection from "@/app/components/sections/SkillsSection";
+import ProjectsSection from "@/app/components/sections/ProjectsSection";
+import ProjectModal from "@/app/components/ui/ProjectModal";
+import projects from "@/data/projects";
+
+// Remaining sections added in Steps 12–13
+const PLACEHOLDER_SECTIONS = ["experience", "contact"];
 
 export default function Home() {
+  const [openProjectId, setOpenProjectId] = useState<number | null>(null);
+
+  const openProject =
+    openProjectId !== null
+      ? projects.find((p) => p.id === openProjectId) ?? null
+      : null;
+
   return (
     <>
       <HeroSection />
       <AboutSection />
       <SkillsSection />
+      <ProjectsSection onOpenProject={setOpenProjectId} />
+
       {PLACEHOLDER_SECTIONS.map((id) => (
         <section
           key={id}
@@ -28,10 +44,12 @@ export default function Home() {
               fontSize: "13px",
             }}
           >
-            ~/{id} — coming in Phase {6 + PLACEHOLDER_SECTIONS.indexOf(id)}
+            ~/{id} — coming in Phase 4
           </p>
         </section>
       ))}
+
+      <ProjectModal project={openProject} onClose={() => setOpenProjectId(null)} />
     </>
   );
 }

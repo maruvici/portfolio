@@ -24,7 +24,7 @@ const projects: Project[] = [
       "A Next.js and PostgreSQL knowledge platform streamlining info sharing and communication.",
     desc:
       "A secure internal knowledge base built with Next.js, Nginx, Drizzle ORM, and PostgreSQL. " +
-      "Features Microsoft SSO, rich-text editing, file storage, global post searching and filtering,." +
+      "Features Microsoft SSO, rich-text editing, file storage, global post searching and filtering, " +
       "and nested comments among others. Includes documentation created using Mkdocs.",
     tags: ["Next.js", "Node.js", "TypeScript", "JavaScript", "React", "Tailwind", "Nginx", "PostgreSQL", "Mkdocs", "Mermaid"],
     github: "https://github.com/maruvici/info-hub",
@@ -34,14 +34,14 @@ const projects: Project[] = [
   },
   {
     id: 1,
-    name: "Automated Database Health Check (Auto-DBHC)",
+    name: "Automated Database Health Check",
     sub: "Database Diagnostics Collector and Report Generator",
     status: "archived",
     excerpt:
       "Metrics collector for Oracle Databases capable of automatic report generation using Quarto.",
     desc:
-      "Collects database diagnostic data using Bash and SQLPlus scripts and stores them in CSV files." +
-      "Creates a Docker container, which runs Python scripts that extract and filter the diagnostic data" +
+      "Collects database diagnostic data using Bash and SQLPlus scripts and stores them in CSV files. " +
+      "Creates a Docker container, which runs Python scripts that extract and filter the diagnostic data " +
       "to produce interactive HTML and PDF reports using the Quarto engine.",
     tags: ["Bash", "Python", "SQLPlus", "Oracle", "Docker"],
     github: "https://github.com/maruvici/auto-dbhc",
@@ -55,7 +55,7 @@ const projects: Project[] = [
     sub: "Quezon City Traffic Simulator using MPC-based traffic control",
     status: "archived",
     excerpt:
-      "Embedded IoT system monitoring soil, temperature, and humidity on Raspberry Pi.",
+      "Comparative simulator of MPC-based traffic signal control approaches using SUMo, Python, and Bash.",
     desc:
       "Capstone project — A study comparing various MPC-based traffic signal control approaches " +
       "using SUMo. Utilizes Python scripts to collect performance metrics via TRACI and Bash scripts " +
