@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/app/context/ThemeContext";
 import { TerminalProvider } from "@/app/context/TerminalContext";
+import { SkillFilterProvider } from "@/app/context/SkillFilterContext";
 import AppShell from "@/app/components/layout/AppShell";
 import LoadingScreen from "@/app/components/ui/LoadingScreen";
 
@@ -36,9 +37,11 @@ export default function RootLayout({
         <LoadingScreen />
         <ThemeProvider>
           <TerminalProvider>
-            <AppShell>
-              {children}
-            </AppShell>
+            <SkillFilterProvider>
+              <AppShell>
+                {children}
+              </AppShell>
+            </SkillFilterProvider>
           </TerminalProvider>
         </ThemeProvider>
       </body>

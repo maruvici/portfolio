@@ -27,12 +27,12 @@ const skillGroups: SkillGroup[] = [
   },
   {
     label: "Operating Systems",
-    comment: "// os",
+    comment: "// operating systems",
     skills: ["Windows", "Ubuntu", "RHEL"],
   },
   {
     label: "Administrative & Project Management",
-    comment: "// administrative & project management",
+    comment: "// admin & proj management",
     skills: ["Jira", "Confluence", "Mermaid", "Mkdocs"],
   },
 ];
