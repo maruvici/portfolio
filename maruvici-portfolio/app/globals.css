@@ -1,8 +1,5 @@
 @import "tailwindcss";
 
-@source "../data/*.{ts,tsx,js,jsx}";
-@source "./**/*.{ts,tsx,js,jsx}";
-
 /* ============================================================
    DESIGN TOKENS — Dark mode (default)
    ============================================================ */
@@ -313,6 +310,74 @@ section:last-of-type {
   border-color: var(--accent);
   color: var(--accent);
   font-weight: 700;
+}
+
+/* ============================================================
+   CONTACT SECTION
+   ============================================================ */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1.1rem;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.contact-card:hover {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+}
+
+.contact-icon {
+  color: var(--accent);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.contact-label {
+  font-size: 10px;
+  color: var(--fg3);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.15rem;
+  transition: color 0.3s ease;
+}
+
+.contact-val {
+  font-size: 13px;
+  color: var(--fg);
+  transition: color 0.3s ease;
+}
+
+.site-footer {
+  font-size: 12px;
+  color: var(--fg3);
+  text-align: center;
+  padding-top: 1rem;
+  transition: color 0.3s ease;
+}
+
+.site-footer span {
+  color: var(--accent);
+}
+
+/* Contact — collapse to single column on mobile */
+@media (max-width: 640px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ============================================================
