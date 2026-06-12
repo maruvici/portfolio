@@ -17,7 +17,7 @@ export interface PersonalInfo {
 }
 
 const personal: PersonalInfo = {
-  name: "Maruvici",
+  name: "maruvici",
   firstName: "Mav",
   tagline: "Building things that work, and automating the rest.",
   roles: [
@@ -30,10 +30,10 @@ const personal: PersonalInfo = {
   status: "Employed — Open to Opportunities",
   location: "Philippines 🇵🇭",
   bio: [
-    "I'm Mav, a Computer Engineering graduate and software developer based in the Philippines. " +
+    "I'm Mav, a BS Computer Engineering graduate and software developer based in the Philippines. " +
       "I specialize in fullstack web development — building professional apps, tools, and systems " +
       "that scale effortlessly, and meet clients' needs.",
-    "I also dabble in automation — utilizing Bash scripts, Docker containers, and Ansible playbooks" +
+    "I also dabble in automation — utilizing Bash scripts, Docker containers, and Ansible playbooks " +
       "to reduce tedious manual tasks, and improve overall work efficiency. I make sure to bring " +
       "engineering rigor to every project. Always learning, always building.",
   ],

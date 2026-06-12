@@ -1,11 +1,13 @@
 import HeroSection from "@/app/components/sections/HeroSection";
+import AboutSection from "./components/sections/AboutSection";
 
-const PLACEHOLDER_SECTIONS = ["about", "skills", "projects", "experience", "contact"];
+const PLACEHOLDER_SECTIONS = ["skills", "projects", "experience", "contact"];
 
 export default function Home() {
   return (
     <>
       <HeroSection />
+      <AboutSection />
       {PLACEHOLDER_SECTIONS.map((id) => (
         <section
           key={id}
@@ -24,7 +26,7 @@ export default function Home() {
               fontSize: "13px",
             }}
           >
-            ~/{id} — coming in Phase {4 + PLACEHOLDER_SECTIONS.indexOf(id)}
+            ~/{id} — coming in Phase {5 + PLACEHOLDER_SECTIONS.indexOf(id)}
           </p>
         </section>
       ))}
