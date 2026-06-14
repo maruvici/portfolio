@@ -13,7 +13,7 @@ const experience: ExperienceEntry[] = [
   {
     id: 0,
     type: "work",
-    role: "Automation Engineer",
+    role: "Assistant Automation Engineer",
     organization: "StrategicSynergy Inc. (SSI)",
     dateRange: "Dec 2025 – Jun 2026",
     bullets: [

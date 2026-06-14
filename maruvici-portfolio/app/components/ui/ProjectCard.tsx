@@ -97,7 +97,8 @@ export default function ProjectCard({
         {/* Top row: name + status badge */}
         <div
           style={{
-            display: "flex",
+            display: "grid",
+            gridTemplateColumns: "13fr 7fr",
             justifyContent: "space-between",
             alignItems: "center",
             marginBottom: "0.4rem",
@@ -123,6 +124,8 @@ export default function ProjectCard({
               background: badgeColors.bg,
               color: badgeColors.color,
               border: `1px solid ${badgeColors.border}`,
+              alignSelf: "flex-start",
+              justifySelf: "flex-end",
             }}
           >
             {badgeLabel}

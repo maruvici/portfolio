@@ -28,7 +28,7 @@ const personal: PersonalInfo = {
     "caffeine-to-code converter",
   ],
   status: "Employed — Open to Opportunities",
-  location: "Philippines 🇵🇭",
+  location: "Philippines",
   bio: [
     "I'm Mav, a BS Computer Engineering graduate and software developer based in the Philippines. " +
       "I specialize in fullstack web development — building professional apps, tools, and systems " +

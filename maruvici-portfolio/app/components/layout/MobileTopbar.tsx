@@ -8,7 +8,7 @@ interface MobileTopbarProps {
 }
 
 export default function MobileTopbar({ onMenuOpen }: MobileTopbarProps) {
-  const { toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
   const { toggleTerminal } = useTerminal();
 
   return (
@@ -25,9 +25,9 @@ export default function MobileTopbar({ onMenuOpen }: MobileTopbarProps) {
       </span>
 
       <div style={{ display: "flex", gap: "0.5rem", alignItems: "center"}}>
-        <TopbarBtn onClick={toggleTheme} label="[ theme ]" />
+        <TopbarBtn onClick={toggleTheme} label={theme === "dark" ? "[ 𖤓 ]" : "[ ⏾ ]"} />
         <TopbarBtn onClick={toggleTerminal} label="[ >_ ]" />
-        <TopbarBtn onClick={onMenuOpen} label="[ menu ]" />
+        <TopbarBtn onClick={onMenuOpen} label="[ ☰ ]" />
       </div>
     </div>
   );
@@ -48,7 +48,7 @@ function TopbarBtn({
         border: "1px solid var(--border2)",
         color: "var(--fg2)",
         fontFamily: "var(--font-mono)",
-        fontSize: "9px",
+        fontSize: "10px",
         padding: "0.35rem 0.65rem",
         borderRadius: "var(--radius)",
         cursor: "pointer",

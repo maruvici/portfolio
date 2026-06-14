@@ -416,6 +416,15 @@ section:last-of-type {
 .term-line .t-d   { color: #444; }
 .term-line .t-err { color: #e05555; }
 
+.term-bar {
+  background: #1a1a1a;
+  border-bottom: 1px solid #2a2a2a;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
 .term-input-row {
   display: flex;
   align-items: center;
@@ -768,5 +777,18 @@ section:last-of-type {
 
   section#hero {
     min-height: calc(100vh - 48px);
+  }
+
+  /* Hide the desktop logo header and theme/terminal buttons in the
+    mobile drawer — these are already covered by the topbar icons */
+  .sidebar-header,
+  .sidebar-footer {
+    display: none;
+    visibility: hidden;
+  }
+ 
+  /* Push nav links below the fixed topbar so they aren't covered */
+  .sidebar-nav {
+    padding-top: calc(48px + 0.6rem) !important;
   }
 }

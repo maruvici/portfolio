@@ -26,8 +26,9 @@ export default function Sidebar({ mobileOpen, onClose }: SidebarProps) {
       className={mobileOpen ? "mobile-open" : ""}
       aria-label="Main navigation"
     >
-      {/* ── Logo / identity ── */}
+      {/* ── Logo / identity — hidden on mobile ── */}
       <div
+        className="sidebar-header"
         style={{
           padding: "1rem",
           borderBottom: "1px solid var(--border)",
@@ -45,12 +46,12 @@ export default function Sidebar({ mobileOpen, onClose }: SidebarProps) {
           maruvici@portfolio:~$
         </div>
         <div style={{ color: "var(--fg3)", fontSize: "10px", marginTop: "3px" }}>
-          v1.0.0 — 2026
+          v1.0.1 — 2026
         </div>
       </div>
 
       {/* ── Nav links ── */}
-      <div style={{ padding: "0.6rem 0", flex: 1, overflowY: "auto" }}>
+      <div className="sidebar-nav" style={{ padding: "0.6rem 0", flex: 1, overflowY: "auto" }}>
         {NAV_LINKS.map((link) => {
           const isActive = active === link.target;
           return (
@@ -102,8 +103,9 @@ export default function Sidebar({ mobileOpen, onClose }: SidebarProps) {
         })}
       </div>
 
-      {/* ── Bottom actions ── */}
+      {/* ── Bottom actions — hidden on mobile ── */}
       <div
+        className="sidebar-footer"
         style={{
           padding: "0.8rem 1rem",
           borderTop: "1px solid var(--border)",

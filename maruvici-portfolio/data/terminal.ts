@@ -21,7 +21,7 @@ export const TERMINAL_COMMANDS: TerminalCommand[] = [
 ];
 
 export const BOOT_LINES: string[] = [
-  "> BIOS v1.0.0 — Maruvici OS initialized",
+  "> BIOS v1.0.1 — Maruvici OS initialized",
   "> Loading kernel modules.............. OK",
   "> Mounting /home/maruvici/portfolio........ OK",
   "> Starting systemd services........... OK",
@@ -33,5 +33,5 @@ export const BOOT_LINES: string[] = [
   "> Drinking some coffee........... OK",
   "> All systems operational.",
   "",
-  "Portfolio v1.0.0 — ready.",
+  "Portfolio v1.0.1 — ready.",
 ];
